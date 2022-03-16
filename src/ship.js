@@ -1,20 +1,24 @@
 const Ship = (shipLength) => {
   const length = shipLength;
   const squares = [...Array(length).keys()];
-  const targets = [];
+  const coordinates = [];
 
-  const hit = (i) => {
-    if (squares[i] === 'hit') {
+  const hit = (key) => {
+    if (squares[key] === 'hit') {
       return false;
     }
-    squares[i] = 'hit';
+    squares[key] = 'hit';
     return true;
   };
 
   const isSunk = () => squares.reduce((prev, curr) => prev && curr === 'hit', true);
 
   return {
-    squares, length, hit, isSunk, targets,
+    squares,
+    coordinates,
+    length,
+    hit,
+    isSunk,
   };
 };
 
