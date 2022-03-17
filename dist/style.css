@@ -6,6 +6,23 @@
   --white: #f2f2f2;
 }
 
+@font-face {
+  font-family: aguda;
+  src: url('./aguda.otf');
+}
+
+@font-face {
+  font-family: 'Sansita Swashed';
+  src: url('./SansitaSwashed-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('./SourceSansPro-Regular.ttf');
+}
+
+/* -- -- */
+
 body {
   background-color: var(--white);
 }
@@ -28,20 +45,38 @@ header {
 }
 
 .logo__icon {
-  background-color: green;
   height: var(--logo-size);
   width: var(--logo-size);
 }
 
-.logo__text,
-.info {
+.logo__text {
   font-size: var(--logo-size);
+  font-family: aguda, sans-serif;
+}
+
+.info {
+  font-size: 1.5rem;
+  height: var(--logo-size);
+  width: var(--logo-size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(235, 234, 234);
+  border-radius: 100%;
+  font-family: 'Sansita Swashed', serif;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.info:hover {
+  background-color: rgb(230, 230, 230);
 }
 
 main {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 #player1 .user__name {
@@ -52,13 +87,11 @@ main {
   background-color: var(--dark-red);
 }
 
-.user * {
-}
-
 .user {
   display: flex;
   flex-direction: column;
   --board-size: 35rem;
+  --square-size: calc(var(--board-size) / 10);
 }
 
 .user__name {
@@ -79,12 +112,22 @@ main {
   margin: 1rem 0;
 }
 
+@media screen and (max-width: 35rem) {
+  .user__grid {
+    height: 22rem;
+    width: 22rem;
+  }
+}
+
 .user__grid > * {
   border-radius: 0.15rem;
+  transition: box-shadow 0.2s;
+  cursor: pointer;
 }
 
 .user__grid > *:hover {
-  box-shadow: 2px 2px 2x black;
+  box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.288);
+  z-index: 1;
 }
 
 .user__square:nth-child(20n),
@@ -112,4 +155,37 @@ main {
 .user__square:nth-child(20n + 17),
 .user__square:nth-child(20n + 19) {
   background-color: #e2e2e2;
+}
+
+#player1 .user__square,
+.user__square--hit {
+  cursor: not-allowed;
+}
+
+.user__square--ship {
+  background-color: var(--blue) !important;
+}
+
+.user__square--ship-hit {
+  background-color: var(--red) !important;
+}
+
+.user__square--hit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user__square--hit::after {
+  content: '';
+  height: 50%;
+  width: 50%;
+  z-index: 1;
+  background-color: var(--red);
+  border-radius: 100%;
+}
+
+.ships {
+  font-size: 1.25rem;
+  text-decoration: underline;
 }
