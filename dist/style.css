@@ -1,0 +1,32 @@
+:root {
+  --dark-red: #a6242f;
+  --red: #d93d4a;
+  --dark-blue: #215ba6;
+  --blue: #2484bf;
+  --white: #f2f2f2;
+}
+
+body {
+  background-color: var(--white);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  align-items: center;
+  background-color: white;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.logo__icon {
+  background-color: green;
+  height: 1rem;
+  width: 1rem;
+}
