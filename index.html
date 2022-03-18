@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Simple battleship</title>
+
+    <link rel='stylesheet' href='./normalize.css'>
+    <link rel='stylesheet' href='./style.css'>
+</head>
+
+<body>
+    <div class='modal'>
+        <div class='modal__insert-name'></div>
+        <div class='modal__info'></div>
+    </div>
+    <header>
+        <div class='logo'>
+            <img class='logo__icon' src='./radar.svg'>
+            <div class='logo__text'>battleship</div>
+        </div>
+        <div class='info'>i</div>
+    </header>
+
+    <main>
+        <div class='user' id='player1'>
+            <div class='user__name'>Player's fleet</div>
+            <div class='user__grid'>
+                <div class='user__square 0'></div>
+                <div class='user__square 1'></div>
+                <div class='user__square 2'></div>
+                <div class='user__square 3'></div>
+                <div class='user__square 4'></div>
+                <div class='user__square 5'></div>
+                <div class='user__square 6'></div>
+                <div class='user__square 7'></div>
+                <div class='user__square 8'></div>
+                <div class='user__square 9'></div>
+                <div class='user__square 10'></div>
+                <div class='user__square 11 user__square--ship'></div>
+                <div class='user__square 12 user__square--ship'></div>
+                <div class='user__square 13 user__square--ship user__square--ship-hit'></div>
+                <div class='user__square 14 user__square--ship'></div>
+                <div class='user__square 15'></div>
+                <div class='user__square 16'></div>
+                <div class='user__square 17'></div>
+                <div class='user__square 18'></div>
+                <div class='user__square 19'></div>
+                <div class='user__square 20'></div>
+                <div class='user__square 21 user__square--hit'></div>
+                <div class='user__square 22'></div>
+                <div class='user__square 23'></div>
+                <div class='user__square 24'></div>
+                <div class='user__square 25'></div>
+                <div class='user__square 26 user__square--hit'></div>
+                <div class='user__square 27'></div>
+                <div class='user__square 28'></div>
+                <div class='user__square 29'></div>
+                <div class='user__square 30'></div>
+                <div class='user__square 31'></div>
+                <div class='user__square 32'></div>
+                <div class='user__square 33'></div>
+                <div class='user__square 34'></div>
+                <div class='user__square 35'></div>
+                <div class='user__square 36'></div>
+                <div class='user__square 37'></div>
+                <div class='user__square 38'></div>
+                <div class='user__square 39'></div>
+                <div class='user__square 40'></div>
+                <div class='user__square 41'></div>
+                <div class='user__square 42'></div>
+                <div class='user__square 43'></div>
+                <div class='user__square 44'></div>
+                <div class='user__square 45'></div>
+                <div class='user__square 46'></div>
+                <div class='user__square 47'></div>
+                <div class='user__square 48'></div>
+                <div class='user__square 49'></div>
+                <div class='user__square 50'></div>
+                <div class='user__square 51'></div>
+                <div class='user__square 52'></div>
+                <div class='user__square 53'></div>
+                <div class='user__square 54'></div>
+                <div class='user__square 55'></div>
+                <div class='user__square 56'></div>
+                <div class='user__square 57'></div>
+                <div class='user__square 58'></div>
+                <div class='user__square 59'></div>
+                <div class='user__square 60'></div>
+                <div class='user__square 61'></div>
+                <div class='user__square 62'></div>
+                <div class='user__square 63'></div>
+                <div class='user__square 64'></div>
+                <div class='user__square 65'></div>
+                <div class='user__square 66'></div>
+                <div class='user__square 67'></div>
+                <div class='user__square 68'></div>
+                <div class='user__square 69'></div>
+                <div class='user__square 70'></div>
+                <div class='user__square 71'></div>
+                <div class='user__square 72'></div>
+                <div class='user__square 73'></div>
+                <div class='user__square 74'></div>
+                <div class='user__square 75'></div>
+                <div class='user__square 76'></div>
+                <div class='user__square 77'></div>
+                <div class='user__square 78'></div>
+                <div class='user__square 79'></div>
+                <div class='user__square 80'></div>
+                <div class='user__square 81'></div>
+                <div class='user__square 82'></div>
+                <div class='user__square 83'></div>
+                <div class='user__square 84'></div>
+                <div class='user__square 85'></div>
+                <div class='user__square 86'></div>
+                <div class='user__square 87'></div>
+                <div class='user__square 88'></div>
+                <div class='user__square 89'></div>
+                <div class='user__square 90'></div>
+                <div class='user__square 91'></div>
+                <div class='user__square 92'></div>
+                <div class='user__square 93'></div>
+                <div class='user__square 94'></div>
+                <div class='user__square 95'></div>
+                <div class='user__square 96'></div>
+                <div class='user__square 97'></div>
+                <div class='user__square 98'></div>
+                <div class='user__square 99'></div>
+            </div>
+            <div class='ships'>Ships</div>
+            <div class='ships__count'>
+                <div class='ships__square--1-1'></div>
+                <div class='ships__square--1-2'></div>
+                <div class='ships__square--2-1 ships__square--hit'></div>
+                <div class='ships__square--2-2'></div>
+                <div class='ships__square--2-3'></div>
+                <div class='ships__square--3-1'></div>
+                <div class='ships__square--3-2'></div>
+                <div class='ships__square--3-3'></div>
+                <div class='ships__square--4-1'></div>
+                <div class='ships__square--4-2'></div>
+                <div class='ships__square--4-3'></div>
+                <div class='ships__square--4-4'></div>
+                <div class='ships__square--5-1'></div>
+                <div class='ships__square--5-2'></div>
+                <div class='ships__square--5-3'></div>
+                <div class='ships__square--5-4'></div>
+                <div class='ships__square--5-5'></div>
+            </div>
+        </div>
+        <div class='user' id='player2'>
+            <div class='user__name'>Computer 2's fleet</div>
+            <div class='user__grid'>
+                <div class='user__square 0'></div>
+                <div class='user__square 1'></div>
+                <div class='user__square 2'></div>
+                <div class='user__square 3'></div>
+                <div class='user__square 4'></div>
+                <div class='user__square 5'></div>
+                <div class='user__square 6'></div>
+                <div class='user__square 7'></div>
+                <div class='user__square 8'></div>
+                <div class='user__square 9'></div>
+                <div class='user__square 10'></div>
+                <div class='user__square 11'></div>
+                <div class='user__square 12 user__square--hit'></div>
+                <div class='user__square 13'></div>
+                <div class='user__square 14'></div>
+                <div class='user__square 15'></div>
+                <div class='user__square 16'></div>
+                <div class='user__square 17'></div>
+                <div class='user__square 18'></div>
+                <div class='user__square 19'></div>
+                <div class='user__square 20'></div>
+                <div class='user__square 21'></div>
+                <div class='user__square 22'></div>
+                <div class='user__square 23'></div>
+                <div class='user__square 24'></div>
+                <div class='user__square 25'></div>
+                <div class='user__square 26'></div>
+                <div class='user__square 27'></div>
+                <div class='user__square 28'></div>
+                <div class='user__square 29'></div>
+                <div class='user__square 30'></div>
+                <div class='user__square 31'></div>
+                <div class='user__square 32'></div>
+                <div class='user__square 33'></div>
+                <div class='user__square 34'></div>
+                <div class='user__square 35'></div>
+                <div class='user__square 36'></div>
+                <div class='user__square 37'></div>
+                <div class='user__square 38'></div>
+                <div class='user__square 39'></div>
+                <div class='user__square 40'></div>
+                <div class='user__square 41'></div>
+                <div class='user__square 42'></div>
+                <div class='user__square 43'></div>
+                <div class='user__square 44'></div>
+                <div class='user__square 45'></div>
+                <div class='user__square 46'></div>
+                <div class='user__square 47'></div>
+                <div class='user__square 48'></div>
+                <div class='user__square 49'></div>
+                <div class='user__square 50'></div>
+                <div class='user__square 51'></div>
+                <div class='user__square 52'></div>
+                <div class='user__square 53'></div>
+                <div class='user__square 54'></div>
+                <div class='user__square 55'></div>
+                <div class='user__square 56'></div>
+                <div class='user__square 57'></div>
+                <div class='user__square 58'></div>
+                <div class='user__square 59'></div>
+                <div class='user__square 60'></div>
+                <div class='user__square 61'></div>
+                <div class='user__square 62'></div>
+                <div class='user__square 63'></div>
+                <div class='user__square 64'></div>
+                <div class='user__square 65'></div>
+                <div class='user__square 66'></div>
+                <div class='user__square 67'></div>
+                <div class='user__square 68'></div>
+                <div class='user__square 69'></div>
+                <div class='user__square 70'></div>
+                <div class='user__square 71'></div>
+                <div class='user__square 72'></div>
+                <div class='user__square 73'></div>
+                <div class='user__square 74'></div>
+                <div class='user__square 75'></div>
+                <div class='user__square 76'></div>
+                <div class='user__square 77'></div>
+                <div class='user__square 78'></div>
+                <div class='user__square 79'></div>
+                <div class='user__square 80'></div>
+                <div class='user__square 81'></div>
+                <div class='user__square 82'></div>
+                <div class='user__square 83'></div>
+                <div class='user__square 84'></div>
+                <div class='user__square 85'></div>
+                <div class='user__square 86'></div>
+                <div class='user__square 87'></div>
+                <div class='user__square 88'></div>
+                <div class='user__square 89'></div>
+                <div class='user__square 90'></div>
+                <div class='user__square 91'></div>
+                <div class='user__square 92'></div>
+                <div class='user__square 93'></div>
+                <div class='user__square 94'></div>
+                <div class='user__square 95'></div>
+                <div class='user__square 96'></div>
+                <div class='user__square 97'></div>
+                <div class='user__square 98'></div>
+                <div class='user__square 99'></div>
+            </div>
+            <div class='ships'>Ships</div>
+            <div class='ships__count'>
+                <div class='ships__square--1-1'></div>
+                <div class='ships__square--1-2'></div>
+                <div class='ships__square--2-1 ships__square--hit'></div>
+                <div class='ships__square--2-2'></div>
+                <div class='ships__square--2-3'></div>
+                <div class='ships__square--3-1'></div>
+                <div class='ships__square--3-2'></div>
+                <div class='ships__square--3-3'></div>
+                <div class='ships__square--4-1'></div>
+                <div class='ships__square--4-2'></div>
+                <div class='ships__square--4-3'></div>
+                <div class='ships__square--4-4'></div>
+                <div class='ships__square--5-1'></div>
+                <div class='ships__square--5-2'></div>
+                <div class='ships__square--5-3'></div>
+                <div class='ships__square--5-4'></div>
+                <div class='ships__square--5-5'></div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
