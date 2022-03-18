@@ -1,3 +1,5 @@
+/* ---------------------- */
+/* ---------------------- */
 :root {
   --dark-red: #a6242f;
   --red: #d93d4a;
@@ -20,13 +22,16 @@
   font-family: 'Source Sans Pro';
   src: url('./SourceSansPro-Regular.ttf');
 }
-
-/* -- -- */
-
 body {
   background-color: var(--white);
 }
+/* ---------------------- */
+/* ---------------------- */
+/* ---------------------- */
 
+/* header */
+/* ---------------------- */
+/* ---------------------- */
 header {
   display: flex;
   justify-content: space-between;
@@ -71,11 +76,17 @@ header {
 .info:hover {
   background-color: rgb(230, 230, 230);
 }
+/* ---------------------- */
+/* ---------------------- */
+/* ---------------------- */
 
+/* main grid */
+/* ---------------------- */
+/* ---------------------- */
 main {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
   font-family: 'Source Sans Pro', sans-serif;
 }
 
@@ -90,8 +101,8 @@ main {
 .user {
   display: flex;
   flex-direction: column;
-  --board-size: 35rem;
-  --square-size: calc(var(--board-size) / 10);
+  --board-size: 34rem;
+  --square-size: calc(var(--board-size) / 12);
 }
 
 .user__name {
@@ -112,10 +123,9 @@ main {
   margin: 1rem 0;
 }
 
-@media screen and (max-width: 35rem) {
-  .user__grid {
-    height: 22rem;
-    width: 22rem;
+@media screen and (max-width: 34rem) {
+  .user {
+    --board-size: 22rem;
   }
 }
 
@@ -166,16 +176,12 @@ main {
   background-color: var(--blue) !important;
 }
 
-.user__square--ship-hit {
-  background-color: var(--red) !important;
+.user__square {
+  display: grid;
+  place-items: center;
 }
 
-.user__square--hit {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
+.user__square--ship-hit::after,
 .user__square--hit::after {
   content: '';
   height: 50%;
@@ -184,8 +190,126 @@ main {
   background-color: var(--red);
   border-radius: 100%;
 }
+/* ---------------------- */
+/* ---------------------- */
+/* ---------------------- */
 
+/* ships count */
+/* ---------------------- */
+/* ---------------------- */
 .ships {
   font-size: 1.25rem;
   text-decoration: underline;
 }
+
+.ships__count > * {
+  border-radius: 0.15rem;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.ships__count {
+  display: grid;
+  height: calc(var(--board-size) / 3.38);
+  width: var(--board-size);
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  column-gap: 0.2rem;
+  row-gap: 0.4rem;
+  margin: 0.5rem 0;
+  grid-template-areas:
+    's01 s02 . s13 s14 s15 s16 s17 . .'
+    's03 s04 s05 . s06 s07 s08 . . .'
+    's09 s10 s11 s12 . . . . . .';
+}
+
+.ships__square--hit::after {
+  content: '×';
+  font-family: 'Source Code Pro' sans-serif;
+  position: absolute;
+  text-align: center;
+  color: white;
+  font-size: 5.5rem;
+  z-index: 1;
+  border-radius: 100%;
+}
+
+.ships__square--1-1 {
+  grid-area: s01;
+}
+
+.ships__square--1-2 {
+  grid-area: s02;
+}
+
+.ships__square--2-1 {
+  grid-area: s03;
+}
+
+.ships__square--2-2 {
+  grid-area: s04;
+}
+
+.ships__square--2-3 {
+  grid-area: s05;
+}
+
+.ships__square--3-1 {
+  grid-area: s06;
+}
+
+.ships__square--3-2 {
+  grid-area: s07;
+}
+
+.ships__square--3-3 {
+  grid-area: s08;
+}
+
+.ships__square--4-1 {
+  grid-area: s09;
+}
+
+.ships__square--4-2 {
+  grid-area: s10;
+}
+
+.ships__square--4-3 {
+  grid-area: s11;
+}
+
+.ships__square--4-4 {
+  grid-area: s12;
+}
+
+.ships__square--5-1 {
+  grid-area: s13;
+}
+
+.ships__square--5-2 {
+  grid-area: s14;
+}
+
+.ships__square--5-3 {
+  grid-area: s15;
+}
+
+.ships__square--5-4 {
+  grid-area: s16;
+}
+
+.ships__square--5-5 {
+  grid-area: s17;
+}
+
+#player1 .ships__count > * {
+  background-color: var(--blue);
+}
+
+#player2 .ships__count > * {
+  background-color: var(--red);
+}
+/* ---------------------- */
+/* ---------------------- */
+/* ---------------------- */
