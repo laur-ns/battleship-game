@@ -1,6 +1,6 @@
 const Player = (newName) => {
   let name = newName;
-  if (name === undefined) {
+  if (name === undefined || name === null || name === '') {
     name = 'Player';
   }
 

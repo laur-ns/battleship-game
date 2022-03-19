@@ -1,3 +1,3 @@
-import startNewGame from './game';
+import initializeGame from './game';
 
-startNewGame();
+initializeGame();

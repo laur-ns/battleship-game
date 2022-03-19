@@ -52,6 +52,7 @@ const Gameboard = () => {
   };
 
   const receiveAttack = (x, y) => {
+    console.log(x, y);
     if (board[x][y] === 0) {
       return false;
     }
@@ -59,7 +60,6 @@ const Gameboard = () => {
       board[x][y] = 0;
       return true;
     }
-
     const ship = ships[board[x][y] - 1];
     let i;
     for (i = 0; i < ship.coordinates.length; i += 1) {
