@@ -6,6 +6,20 @@ import Player from './player';
 let playerTurn = 2;
 let isGameReady = false;
 
+const updateShipCount = (playerElem, board) => {
+  const shipsElems = playerElem.querySelectorAll('.ships__count > *');
+  const { ships } = board;
+  let shipsNum = 0;
+  for (let i = 0; i < 5; i += 1) {
+    for (let j = 0; j < ships[i].squares.length; j += 1) {
+      if (ships[i].squares[j] === 'hit') {
+        shipsElems[shipsNum].classList.add('ships__square--hit');
+      }
+      shipsNum += 1;
+    }
+  }
+};
+
 const displayShips = (board, playerElem) => {
   const grid = playerElem.querySelector('.user__grid');
   grid.innerHTML = '';
@@ -16,7 +30,7 @@ const displayShips = (board, playerElem) => {
   board.placeShip(5, 4, 'x', 5);
   const square = document.createElement('div');
   square.classList.add('user__square');
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 100; i += 1) {
     const newSquare = square.cloneNode();
     newSquare.classList.add(i);
     const x = Number(i % 10);
@@ -59,6 +73,7 @@ const game = (name, name2) => {
       }
       e.classList.add('user__square--hit');
       playerTurn = 1;
+      updateShipCount(p1RootElem, p1Board);
       if (p1Board.checkWin()) {
         console.log(`{p2.name} has won the game!`);
       }
@@ -80,6 +95,7 @@ const game = (name, name2) => {
       }
       e.classList.add('user__square--hit');
       playerTurn = 2;
+      updateShipCount(p2RootElem, p2Board);
       if (p2Board.checkWin()) {
         console.log(`{p1.name} has won the game!`);
       }

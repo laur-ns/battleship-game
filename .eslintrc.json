@@ -12,6 +12,6 @@
         "sourceType": "module"
     },
     "rules": {
-        "allowTemplateLiterals": true
+        "quotes": ["error", "single", { "allowTemplateLiterals": true }]
     }
 }

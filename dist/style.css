@@ -176,10 +176,6 @@ main {
   background-color: var(--blue) !important;
 }
 
-#player2 .user__square--ship {
-  background-color: var(--red) !important;
-}
-
 .user__square {
   display: grid;
   place-items: center;
@@ -203,6 +199,10 @@ main {
   font-size: 5.5rem;
   z-index: 1;
   border-radius: 100%;
+}
+
+#player2 .user__square--hit.user__square--ship {
+  background-color: var(--red) !important;
 }
 /* ---------------------- */
 /* ---------------------- */
