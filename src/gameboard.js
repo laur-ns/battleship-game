@@ -52,7 +52,6 @@ const Gameboard = () => {
   };
 
   const receiveAttack = (x, y) => {
-    console.log(x, y);
     if (board[x][y] === 0) {
       return false;
     }

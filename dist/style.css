@@ -172,8 +172,12 @@ main {
   cursor: not-allowed;
 }
 
-.user__square--ship {
+#player1 .user__square--ship {
   background-color: var(--blue) !important;
+}
+
+#player2 .user__square--ship {
+  background-color: var(--red) !important;
 }
 
 .user__square {
@@ -181,13 +185,23 @@ main {
   place-items: center;
 }
 
-.user__square--ship-hit::after,
-.user__square--hit::after {
+.user__square--hit:not(.user__square--ship)::after {
   content: '';
   height: 50%;
   width: 50%;
   z-index: 1;
   background-color: var(--red);
+  border-radius: 100%;
+}
+
+.user__square--hit.user__square--ship::after {
+  content: '×';
+  font-family: 'Source Code Pro' sans-serif;
+  position: absolute;
+  text-align: center;
+  color: white;
+  font-size: 5.5rem;
+  z-index: 1;
   border-radius: 100%;
 }
 /* ---------------------- */
