@@ -14,20 +14,22 @@
 
 <body>
   <div class='modal'>
-    <div class='modal__insert-name'></div>
-    <div class='modal__info'></div>
+    <div class='modal__alert'>alert!</div>
+    <div class='modal__info'>Drag your ships into the board to start the game.</div>
   </div>
   <header>
     <div class='logo'>
       <img class='logo__icon' src='./radar.svg'>
       <div class='logo__text'>battleship</div>
     </div>
-    <div class='info'>i</div>
+    <a href='https://github.com/laur-ns/battleship-game' class='info'>github</a>
   </header>
 
   <main>
     <div class='user' id='player1'>
-      <div class='user__name'><span>Player</span>'s fleet</div>
+      <div class='user__name'>
+        <span>Player</span>'s fleet
+      </div>
       <div class='user__grid'>
         <div class='user__square 0'></div>
         <div class='user__square 1'></div>
@@ -130,25 +132,22 @@
         <div class='user__square 98'></div>
         <div class='user__square 99'></div>
       </div>
-      <div class='ships'>Ships</div>
+      <div class='ships'>
+        Ships
+        <button class='ships__axis-toggle'>Direction: x</button>
+      </div>
+
       <div class='ships__count'>
-        <div class='ships__square--1-1'></div>
-        <div class='ships__square--1-2'></div>
-        <div class='ships__square--2-1'></div>
-        <div class='ships__square--2-2'></div>
-        <div class='ships__square--2-3'></div>
-        <div class='ships__square--3-1'></div>
-        <div class='ships__square--3-2'></div>
-        <div class='ships__square--3-3'></div>
-        <div class='ships__square--4-1'></div>
-        <div class='ships__square--4-2'></div>
-        <div class='ships__square--4-3'></div>
-        <div class='ships__square--4-4'></div>
-        <div class='ships__square--5-1'></div>
-        <div class='ships__square--5-2'></div>
-        <div class='ships__square--5-3'></div>
-        <div class='ships__square--5-4'></div>
-        <div class='ships__square--5-5'></div>
+        <div class='ships__ship-1 2' draggable='true'>
+        </div>
+        <div class='ships__ship-2 3' draggable='true'>
+        </div>
+        <div class='ships__ship-3 3' draggable='true'>
+        </div>
+        <div class='ships__ship-4 4' draggable='true'>
+        </div>
+        <div class='ships__ship-5 5' draggable='true'>
+        </div>
       </div>
     </div>
     <div class='user' id='player2'>
@@ -254,26 +253,6 @@
         <div class='user__square 97'></div>
         <div class='user__square 98'></div>
         <div class='user__square 99'></div>
-      </div>
-      <div class='ships'>Ships</div>
-      <div class='ships__count'>
-        <div class='ships__square--1-1'></div>
-        <div class='ships__square--1-2'></div>
-        <div class='ships__square--2-1'></div>
-        <div class='ships__square--2-2'></div>
-        <div class='ships__square--2-3'></div>
-        <div class='ships__square--3-1'></div>
-        <div class='ships__square--3-2'></div>
-        <div class='ships__square--3-3'></div>
-        <div class='ships__square--4-1'></div>
-        <div class='ships__square--4-2'></div>
-        <div class='ships__square--4-3'></div>
-        <div class='ships__square--4-4'></div>
-        <div class='ships__square--5-1'></div>
-        <div class='ships__square--5-2'></div>
-        <div class='ships__square--5-3'></div>
-        <div class='ships__square--5-4'></div>
-        <div class='ships__square--5-5'></div>
       </div>
     </div>
   </main>
