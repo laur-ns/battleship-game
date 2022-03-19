@@ -255,6 +255,10 @@ main {
   border-radius: 100%;
 }
 
+#player2 .ships__square--hit {
+  background-color: var(--red) !important;
+}
+
 .ships__square--1-1 {
   grid-area: s01;
 }
@@ -328,7 +332,7 @@ main {
 }
 
 #player2 .ships__count > * {
-  background-color: var(--red);
+  background-color: lightgrey;
 }
 /* ---------------------- */
 /* ---------------------- */

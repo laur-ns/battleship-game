@@ -1,1 +1,126 @@
-(()=>{"use strict";function r(r,t){(null==t||t>r.length)&&(t=r.length);for(var e=0,n=new Array(t);e<t;e++)n[e]=r[e];return n}const t=function(t){var e,n=t,a=function(t){if(Array.isArray(t))return r(t)}(e=Array(n).keys())||function(r){if("undefined"!=typeof Symbol&&null!=r[Symbol.iterator]||null!=r["@@iterator"])return Array.from(r)}(e)||function(t,e){if(t){if("string"==typeof t)return r(t,e);var n=Object.prototype.toString.call(t).slice(8,-1);return"Object"===n&&t.constructor&&(n=t.constructor.name),"Map"===n||"Set"===n?Array.from(t):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?r(t,e):void 0}}(e)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}();return{squares:a,coordinates:[],length:n,hit:function(r){return"hit"!==a[r]&&(a[r]="hit",!0)},isSunk:function(){return a.reduce((function(r,t){return r&&"hit"===t}),!0)}}},e=function(){for(var r=[],e=[],n=0;n<10;n+=1){r[n]=[];for(var a=0;a<10;a+=1)r[n].push(null)}var o=function(t,e,n,a){switch(n){case"x":if(t+a>r.length)return!1;for(var o=0;o<a;o+=1)if(null!==r[t+o][e])return!1;break;case"y":if(e+a>r.length)return!1;for(var i=0;i<a;i+=1)if(null!==r[t][e+i])return!1}return!0};return{board:r,placeShip:function(n,a,i,c){if(!o(n,a,i,c))return!1;var u=e.push(t(c));if("x"===i)for(var s=n;s<n+c;s+=1)r[s][a]=u,e[u-1].coordinates.push([s,a]);if("y"===i)for(var l=a;l<a+c;l+=1)r[n][l]=u,e[u-1].coordinates.push([n,l]);return!0},ships:e,canPlace:o,checkWin:function(){var r=!0;return e.forEach((function(t){t.squares.forEach((function(t){"hit"!==t&&(r=!1)}))})),r},receiveAttack:function(t,n){if(0===r[t][n])return!1;if(null===r[t][n])return r[t][n]=0,!0;var a,o=e[r[t][n]-1];for(a=0;a<o.coordinates.length&&(o.coordinates[a][0]!==t||o.coordinates[a][1]!==n);a+=1);return e[r[t][n]-1].hit(a)}}},n=function(r){var t=r;return null!=t&&""!==t||(t="Player"),{name:t,attack:function(r,t,e){var n=t,a=e;return void 0!==n&&void 0!==a||(n=Math.floor(10*Math.random()),a=Math.floor(10*Math.random())),r.receiveAttack(n,a)}}};var a=1,o=!1,i=function(r,t){for(var e=r.querySelectorAll(".ships__count > *"),n=t.ships,a=0,o=0;o<5;o+=1)for(var i=0;i<n[o].squares.length;i+=1)"hit"===n[o].squares[i]&&e[a].classList.add("ships__square--hit"),a+=1},c=function(r,t){var e=t.querySelector(".user__grid");e.innerHTML="",r.placeShip(0,0,"x",2),r.placeShip(2,2,"y",3),r.placeShip(4,2,"x",3),r.placeShip(5,6,"y",4),r.placeShip(5,4,"x",5);var n=document.createElement("div");n.classList.add("user__square");for(var a=0;a<100;a+=1){var i=n.cloneNode();i.classList.add(a);var c=Number(a%10),u=Math.floor(a/10);r.board[c][u]>0&&i.classList.add("user__square--ship"),e.append(i)}o=!0};!function(r,t){var u=n(r),s=n(t),l=e(),f=e(),h=document.querySelector("#player1"),d=document.querySelector("#player2");h.querySelector(".user__name span").textContent=u.name,d.querySelector(".user__name span").textContent=s.name,c(l,h),c(f,d);var p=h.querySelectorAll(".user__grid > *"),v=d.querySelectorAll(".user__grid > *");p.forEach((function(r){r.addEventListener("click",(function(){if(o&&2===a){var t=Number(r.classList[1]%10),e=Math.floor(r.classList[1]/10);s.attack(l,t,e)&&(r.classList.add("user__square--hit"),i(h,l),l.checkWin()&&(console.log("{p2.name} has won the game!"),o=!1),a=1)}}))})),v.forEach((function(r){r.addEventListener("click",(function(){if(o&&1===a){var t=Number(r.classList[1]%10),e=Math.floor(r.classList[1]/10);u.attack(f,t,e)&&(r.classList.add("user__square--hit"),a=2,i(d,f),f.checkWin()&&(console.log("".concat(u.name," has won the game!")),o=!1),setTimeout((function(){a=2,function(r){for(var t=Math.floor(100*Math.random());r[t].classList.contains("user__square--hit");)t=Math.floor(100*Math.random());r[t].click()}(p)}),1e3))}}))}))}(prompt("Enter your name"),"Computer")})();
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/game.js":
+/*!*********************!*\
+  !*** ./src/game.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _gameboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gameboard */ \"./src/gameboard.js\");\n/* harmony import */ var _player__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./player */ \"./src/player.js\");\n\n // this module contains all the logic that interacts\n// with the DOM\n\nvar playerTurn = 1;\nvar isGameReady = false;\n\nvar updateShipCount = function updateShipCount(playerElem, board) {\n  var shipsElems = playerElem.querySelectorAll('.ships__count > *');\n  var ships = board.ships;\n  var shipsNum = 0;\n\n  for (var i = 0; i < 5; i += 1) {\n    for (var j = 0; j < ships[i].squares.length; j += 1) {\n      if (ships[i].squares[j] === 'hit') {\n        if (playerElem.id === 'player1') {\n          shipsElems[shipsNum].classList.add('ships__square--hit');\n          break;\n        }\n\n        if (ships[i].isSunk()) {\n          shipsElems[shipsNum].classList.add('ships__square--hit');\n        }\n      }\n\n      shipsNum += 1;\n    }\n  }\n};\n\nvar displayShips = function displayShips(board, playerElem) {\n  var grid = playerElem.querySelector('.user__grid');\n  grid.innerHTML = '';\n  var square = document.createElement('div');\n  square.classList.add('user__square');\n\n  for (var i = 0; i < 100; i += 1) {\n    var newSquare = square.cloneNode();\n    newSquare.classList.add(i);\n    var x = Number(i % 10);\n    var y = Math.floor(i / 10);\n\n    if (board.board[x][y] > 0) {\n      newSquare.classList.add('user__square--ship');\n    }\n\n    grid.append(newSquare);\n  }\n};\n\nvar attackRandomSquare = function attackRandomSquare(squaresList) {\n  var r = Math.floor(Math.random() * 100);\n\n  while (squaresList[r].classList.contains('user__square--hit')) {\n    r = Math.floor(Math.random() * 100);\n  }\n\n  squaresList[r].click();\n};\n\nvar placeShips = function placeShips(board) {\n  board.placeShip(0, 0, 'x', 2);\n  board.placeShip(2, 2, 'y', 3);\n  board.placeShip(4, 2, 'x', 3);\n  board.placeShip(5, 6, 'y', 4);\n  board.placeShip(5, 4, 'x', 5);\n};\n\nvar placeRandomShips = function placeRandomShips(board) {\n  var x = Math.floor(Math.random() * 5);\n  var y = Math.floor(Math.random() * 5);\n  var direction = Math.random() > 0.5 ? 'y' : 'x';\n  var length = [2, 3, 3, 4, 5];\n  var isPlaced = false;\n\n  for (var i = 0; i < 5; i += 1) {\n    while (!isPlaced) {\n      isPlaced = board.placeShip(x, y, direction, length[i]);\n      x = Math.floor(Math.random() * 10);\n      y = Math.floor(Math.random() * 10);\n      direction = Math.random() > 0.5 ? 'y' : 'x';\n    }\n\n    isPlaced = false;\n  }\n};\n\nvar game = function game(name, name2) {\n  var p1 = (0,_player__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(name);\n  var p2 = (0,_player__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(name2);\n  var p1Board = (0,_gameboard__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n  var p2Board = (0,_gameboard__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n  var p1RootElem = document.querySelector('#player1');\n  var p2RootElem = document.querySelector('#player2');\n  p1RootElem.querySelector('.user__name span').textContent = p1.name;\n  p2RootElem.querySelector('.user__name span').textContent = p2.name;\n  placeShips(p1Board);\n  placeRandomShips(p2Board);\n  displayShips(p1Board, p1RootElem);\n  displayShips(p2Board, p2RootElem);\n  isGameReady = true;\n  var p1Squares = p1RootElem.querySelectorAll('.user__grid > *');\n  var p2Squares = p2RootElem.querySelectorAll('.user__grid > *');\n  p1Squares.forEach(function (e) {\n    e.addEventListener('click', function () {\n      if (!isGameReady) {\n        return;\n      }\n\n      if (playerTurn !== 2) {\n        return;\n      }\n\n      var x = Number(e.classList[1] % 10);\n      var y = Math.floor(e.classList[1] / 10);\n\n      if (!p2.attack(p1Board, x, y)) {\n        return;\n      }\n\n      e.classList.add('user__square--hit');\n      updateShipCount(p1RootElem, p1Board);\n\n      if (p1Board.checkWin()) {\n        console.log(\"{p2.name} has won the game!\");\n        isGameReady = false;\n      }\n\n      playerTurn = 1;\n    });\n  });\n  p2Squares.forEach(function (e) {\n    e.addEventListener('click', function () {\n      if (!isGameReady) {\n        return;\n      }\n\n      if (playerTurn !== 1) {\n        return;\n      }\n\n      var x = Number(e.classList[1] % 10);\n      var y = Math.floor(e.classList[1] / 10);\n\n      if (!p1.attack(p2Board, x, y)) {\n        return;\n      }\n\n      e.classList.add('user__square--hit');\n      playerTurn = 2;\n      updateShipCount(p2RootElem, p2Board);\n\n      if (p2Board.checkWin()) {\n        console.log(\"\".concat(p1.name, \" has won the game!\"));\n        isGameReady = false;\n      }\n\n      setTimeout(function () {\n        playerTurn = 2;\n        attackRandomSquare(p1Squares);\n      }, 0);\n    });\n  });\n};\n\nvar initializeGame = function initializeGame() {\n  var playerName = 'bob';\n  game(playerName, 'Computer');\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (initializeGame);\n\n//# sourceURL=webpack://my-webpack-project/./src/game.js?");
+
+/***/ }),
+
+/***/ "./src/gameboard.js":
+/*!**************************!*\
+  !*** ./src/gameboard.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _ship__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ship */ \"./src/ship.js\");\n\n\nvar Gameboard = function Gameboard() {\n  var board = [];\n  var ships = []; // init\n\n  for (var i = 0; i < 10; i += 1) {\n    board[i] = [];\n\n    for (var j = 0; j < 10; j += 1) {\n      board[i].push(null);\n    }\n  }\n\n  var canPlace = function canPlace(x, y, direction, length) {\n    switch (direction) {\n      case 'x':\n        if (x + length > board.length) return false;\n\n        for (var _i = 0; _i < length; _i += 1) {\n          if (board[x + _i][y] !== null) return false;\n        }\n\n        break;\n\n      case 'y':\n        if (y + length > board.length) return false;\n\n        for (var _j = 0; _j < length; _j += 1) {\n          if (board[x][y + _j] !== null) return false;\n        }\n\n        break;\n\n      default:\n    }\n\n    return true;\n  };\n\n  var placeShip = function placeShip(x, y, direction, length) {\n    if (!canPlace(x, y, direction, length)) {\n      return false;\n    }\n\n    var shipCount = ships.push((0,_ship__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(length));\n\n    if (direction === 'x') {\n      for (var run = x; run < x + length; run += 1) {\n        board[run][y] = shipCount;\n        ships[shipCount - 1].coordinates.push([run, y]);\n      }\n    }\n\n    if (direction === 'y') {\n      for (var rise = y; rise < y + length; rise += 1) {\n        board[x][rise] = shipCount;\n        ships[shipCount - 1].coordinates.push([x, rise]);\n      }\n    }\n\n    return true;\n  };\n\n  var receiveAttack = function receiveAttack(x, y) {\n    if (board[x][y] === 0) {\n      return false;\n    }\n\n    if (board[x][y] === null) {\n      board[x][y] = 0;\n      return true;\n    }\n\n    var ship = ships[board[x][y] - 1];\n    var i;\n\n    for (i = 0; i < ship.coordinates.length; i += 1) {\n      if (ship.coordinates[i][0] === x && ship.coordinates[i][1] === y) {\n        break;\n      }\n    }\n\n    return ships[board[x][y] - 1].hit(i);\n  };\n\n  var checkWin = function checkWin() {\n    var win = true;\n    ships.forEach(function (e) {\n      e.squares.forEach(function (i) {\n        if (i !== 'hit') {\n          win = false;\n        }\n      });\n    });\n    return win;\n  };\n\n  return {\n    board: board,\n    placeShip: placeShip,\n    ships: ships,\n    canPlace: canPlace,\n    checkWin: checkWin,\n    receiveAttack: receiveAttack\n  };\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Gameboard);\n\n//# sourceURL=webpack://my-webpack-project/./src/gameboard.js?");
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _game__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./game */ \"./src/game.js\");\n\n(0,_game__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n//# sourceURL=webpack://my-webpack-project/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/player.js":
+/*!***********************!*\
+  !*** ./src/player.js ***!
+  \***********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar Player = function Player(newName) {\n  var name = newName;\n\n  if (name === undefined || name === null || name === '') {\n    name = 'Player';\n  }\n\n  var attack = function attack(board, x, y) {\n    var xCoord = x;\n    var yCoord = y;\n\n    if (xCoord === undefined || yCoord === undefined) {\n      xCoord = Math.floor(Math.random() * 10);\n      yCoord = Math.floor(Math.random() * 10);\n    }\n\n    return board.receiveAttack(xCoord, yCoord);\n  };\n\n  return {\n    name: name,\n    attack: attack\n  };\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Player);\n\n//# sourceURL=webpack://my-webpack-project/./src/player.js?");
+
+/***/ }),
+
+/***/ "./src/ship.js":
+/*!*********************!*\
+  !*** ./src/ship.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nfunction _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }\n\nfunction _nonIterableSpread() { throw new TypeError(\"Invalid attempt to spread non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\"); }\n\nfunction _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === \"string\") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === \"Object\" && o.constructor) n = o.constructor.name; if (n === \"Map\" || n === \"Set\") return Array.from(o); if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }\n\nfunction _iterableToArray(iter) { if (typeof Symbol !== \"undefined\" && iter[Symbol.iterator] != null || iter[\"@@iterator\"] != null) return Array.from(iter); }\n\nfunction _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }\n\nfunction _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }\n\nvar Ship = function Ship(shipLength) {\n  var length = shipLength;\n\n  var squares = _toConsumableArray(Array(length).keys());\n\n  var coordinates = [];\n\n  var hit = function hit(key) {\n    if (squares[key] === 'hit') {\n      return false;\n    }\n\n    squares[key] = 'hit';\n    return true;\n  };\n\n  var isSunk = function isSunk() {\n    return squares.reduce(function (prev, curr) {\n      return prev && curr === 'hit';\n    }, true);\n  };\n\n  return {\n    squares: squares,\n    coordinates: coordinates,\n    length: length,\n    hit: hit,\n    isSunk: isSunk\n  };\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Ship);\n\n//# sourceURL=webpack://my-webpack-project/./src/ship.js?");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
+/******/ 	
+/******/ })()
+;
