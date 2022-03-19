@@ -10,8 +10,6 @@ const updateShipCount = (playerElem, board) => {
   const { ships } = board;
   const emptyDiv = document.createElement('div');
   const sortedShips = [...ships].sort((a, b) => a.length - b.length);
-  console.log(sortedShips);
-  console.log(shipsElems);
 
   for (let i = 0; i < 5; i += 1) {
     shipsElems[i].innerHTML = '';
