@@ -191,8 +191,11 @@ main {
 }
 
 .user__square--hit.user__square--ship::after {
-  content: '×';
-  font-family: 'Source Code Pro' sans-serif;
+  content: '';
+  height: var(--square-size);
+  width: var(--square-size);
+  filter: brightness(0) invert(1);
+  background-image: url('./cross.svg');
   position: absolute;
   text-align: center;
   color: white;
@@ -239,8 +242,11 @@ main {
 }
 
 .ships__square--hit::after {
-  content: '×';
-  font-family: 'Source Code Pro' sans-serif;
+  content: '';
+  height: var(--square-size);
+  width: var(--square-size);
+  filter: brightness(0) invert(1);
+  background-image: url('./cross.svg');
   position: absolute;
   text-align: center;
   color: white;

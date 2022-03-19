@@ -3,7 +3,7 @@ import Player from './player';
 // this module contains all the logic that interacts
 // with the DOM
 
-let playerTurn = 2;
+let playerTurn = 1;
 let isGameReady = false;
 
 const updateShipCount = (playerElem, board) => {
@@ -43,6 +43,18 @@ const displayShips = (board, playerElem) => {
   isGameReady = true;
 };
 
+const placeShips = () => {
+
+};
+
+const attackRandomSquare = (squaresList) => {
+  let r = Math.floor(Math.random() * 100);
+  while (squaresList[r].classList.contains('user__square--hit')) {
+    r = Math.floor(Math.random() * 100);
+  }
+  squaresList[r].click();
+};
+
 const game = (name, name2) => {
   const p1 = Player(name);
   const p2 = Player(name2);
@@ -72,11 +84,12 @@ const game = (name, name2) => {
         return;
       }
       e.classList.add('user__square--hit');
-      playerTurn = 1;
       updateShipCount(p1RootElem, p1Board);
       if (p1Board.checkWin()) {
         console.log(`{p2.name} has won the game!`);
+        isGameReady = false;
       }
+      playerTurn = 1;
     });
   });
 
@@ -97,8 +110,13 @@ const game = (name, name2) => {
       playerTurn = 2;
       updateShipCount(p2RootElem, p2Board);
       if (p2Board.checkWin()) {
-        console.log(`{p1.name} has won the game!`);
+        console.log(`${p1.name} has won the game!`);
+        isGameReady = false;
       }
+      setTimeout(() => {
+        playerTurn = 2;
+        attackRandomSquare(p1Squares);
+      }, 1000);
     });
   });
 };
